@@ -1,0 +1,13 @@
+<!-- prettier-ignore -->
+{% extends "base.html" %} 
+{% load crispy_forms_tags %} 
+
+{% block content %}
+<h2>စာအုပ်အသစ်ထည့်ရန်</h2>
+<hr />
+<form action="" method="post" class="form-width" enctype="multipart/form-data">
+  {% csrf_token %} {{ form|crispy }}
+  <button class="btn btn-success ml-2" type="submit">Save</button>
+</form>
+<div style="height: 100px"></div>
+{% endblock content %}

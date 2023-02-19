@@ -1,0 +1,12 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.book-cover {
+  max-width: 400px;
+  height: auto;
+}
+
+.form-width {
+  max-width: 800px;
+}

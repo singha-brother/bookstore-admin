@@ -1,0 +1,46 @@
+<!-- prettier-ignore -->
+{% extends 'base.html' %} 
+{% load static %} 
+{% block style %}
+<link
+  rel="stylesheet"
+  href="{% static 'css/dataTables.bootstrap5.min.css' %}"
+/>
+{% endblock style %} 
+{% block title %}Books List{% endblock title %} 
+{% block content %}
+<table id="book-list" class="table">
+  <thead>
+    <tr>
+      <th>စာအုပ်အမည်</th>
+      <th>စာရေးဆရာ</th>
+      <th>ရောင်းပြီး/ကျန်ရှိ</th>
+      <th>အသေးစိတ်</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for book in book_list %}
+    <tr>
+      <td><strong>{{ book.title }}</strong></td>
+      <td>{{ book.author }}</td>
+      <td>{% if book.sold_out %} ရောင်းပြီး {% else %} ရှိ {% endif %}</td>
+      <td>
+        <a href="{% url 'book_detail' book.pk %}" class="btn btn-outline-info"
+          >အသေးစိတ်</a
+        >
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock content %} {% block script %}
+<script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'js/dataTables.bootstrap5.min.js' %}"></script>
+<script>
+  $(document).ready(function () {
+    $("#book-list").DataTable();
+  });
+</script>
+
+{% endblock script %}

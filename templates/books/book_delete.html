@@ -1,0 +1,18 @@
+<!-- prettier-ignore -->
+{% extends 'base.html' %} 
+{% block content %}
+<h2>စာအုပ်စာရင်းမှ ဖျက်ရန်</h2>
+<hr />
+<form action="" method="post">
+  {% csrf_token %}
+  <p>"{{ book.title }}" စာအုပ်ဖျက်မှာ သေချာပါသလား။</p>
+  <div class="mb-4">
+    <a
+      href="{{request.META.HTTP_REFERER|escape}}"
+      class="btn btn-primary ml-2 mr-4"
+      >Back</a
+    >
+  </div>
+  <button class="btn btn-danger" type="submit">Confirm</button>
+</form>
+{% endblock content %}
